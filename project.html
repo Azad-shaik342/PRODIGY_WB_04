@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Portfolio</title>
+    <style>
+        /* UNIQUE PROJECTS PAGE */
+        
+        .project-showcase {
+            background: #020617;
+            color: white;
+            padding: 130px 8% 80px;
+            min-height: 100vh;
+        }
+        
+        .project-heading {
+            max-width: 760px;
+            margin-bottom: 70px;
+        }
+        
+        .project-heading span {
+            color: #22c55e;
+            letter-spacing: 4px;
+            font-weight: 700;
+        }
+        
+        .project-heading h1 {
+            font-size: 64px;
+            margin: 18px 0;
+        }
+        
+        .project-heading p {
+            color: #cbd5e1;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+        
+        .project-list {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+        
+        .project-row {
+            display: grid;
+            grid-template-columns: 100px 1fr 120px;
+            align-items: center;
+            gap: 30px;
+            padding: 35px;
+            background: linear-gradient(135deg, #0f172a, #111827);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 26px;
+            transition: 0.4s ease;
+        }
+        
+        .project-row:hover {
+            transform: translateX(15px);
+            border-color: #22c55e;
+            background: linear-gradient(135deg, #064e3b, #111827);
+        }
+        
+        .project-number {
+            font-size: 42px;
+            font-weight: 800;
+            color: #22c55e;
+        }
+        
+        .project-details h2 {
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+        
+        .project-details p {
+            color: #cbd5e1;
+            line-height: 1.7;
+            margin-bottom: 18px;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .project-tags span {
+            background: rgba(34, 197, 94, 0.15);
+            color: #86efac;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        
+        .project-icon {
+            width: 95px;
+            height: 95px;
+            background: #22c55e;
+            color: #020617;
+            border-radius: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .project-icon i {
+            font-size: 42px;
+        }
+        
+        .project-cta {
+            background: #ecfdf5;
+            text-align: center;
+            padding: 80px 8%;
+        }
+        
+        .project-cta h2 {
+            font-size: 38px;
+            color: #064e3b;
+            margin-bottom: 15px;
+        }
+        
+        .project-cta p {
+            color: #475569;
+            margin-bottom: 30px;
+        }
+        
+        .project-cta a {
+            display: inline-block;
+            background: #16a34a;
+            color: white;
+            text-decoration: none;
+            padding: 14px 34px;
+            border-radius: 30px;
+            font-weight: 600;
+        }
+        /* RESPONSIVE */
+        
+        @media(max-width: 800px) {
+            .project-heading h1 {
+                font-size: 42px;
+            }
+            .project-row {
+                grid-template-columns: 1fr;
+                text-align: left;
+            }
+            .project-icon {
+                width: 75px;
+                height: 75px;
+            }
+        }
+        /* ===============================
+   PROFESSIONAL NAVIGATION MENU
+================================ */
+        
+        .navbar {
+            width: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(15px);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+        }
+        
+        .nav-container {
+            max-width: 1900px;
+            margin: auto;
+            padding: 16px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-logo a {
+            color: #38bdf8;
+            font-size: 28px;
+            font-weight: 800;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 12px;
+            align-items: center;
+        }
+        
+        .nav-link {
+            color: #e5e7eb;
+            text-decoration: none;
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: 0.3s ease;
+        }
+        
+        .nav-link:hover,
+        .nav-link.active {
+            background: #38bdf8;
+            color: #020617;
+        }
+        
+        .contact-btn {
+            background: #22c55e;
+            color: white;
+        }
+        
+        .contact-btn:hover {
+            background: #16a34a;
+            color: white;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        .bar {
+            display: block;
+            width: 28px;
+            height: 3px;
+            background: white;
+            margin: 5px;
+            border-radius: 5px;
+        }
+        /* Mobile Navigation */
+        
+        @media(max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                width: 260px;
+                height: 100vh;
+                background: #0f172a;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 35px 25px;
+                gap: 20px;
+                transition: 0.4s ease;
+            }
+            .nav-menu.active {
+                right: 0;
+            }
+            .nav-link {
+                width: 100%;
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html"><i class="fas fa-code"></i> PORTFOLIO</a>
+            </div>
+
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="project.html" class="nav-link active">Projects</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="project-showcase">
+
+        <div class="project-heading">
+            <span>MY WORK</span>
+            <h1>Selected Projects</h1>
+            <p>
+                Here are some of the projects I have developed using web technologies, database concepts, and application design principles.
+            </p>
+        </div>
+
+        <div class="project-list">
+
+            <div class="project-row">
+                <div class="project-number">01</div>
+                <div class="project-details">
+                    <h2>Portfolio Website</h2>
+                    <p>
+                        A personal portfolio website designed to showcase my skills, education, projects, and contact information in a professional and responsive layout.
+                    </p>
+                    <div class="project-tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                    </div>
+                </div>
+                <div class="project-icon">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+            </div>
+
+            <div class="project-row">
+                <div class="project-number">02</div>
+                <div class="project-details">
+                    <h2>Stopwatch Web Application</h2>
+                    <p>
+                        A responsive stopwatch application with start, pause, reset, and lap features. It helps users track time accurately with a clean interface.
+                    </p>
+                    <div class="project-tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                    </div>
+                </div>
+                <div class="project-icon">
+                    <i class="fas fa-stopwatch"></i>
+                </div>
+            </div>
+
+            <div class="project-row">
+                <div class="project-number">03</div>
+                <div class="project-details">
+                    <h2>Tic Tac Toe Game</h2>
+                    <p>
+                        An interactive game where users can play against another player or an AI opponent. It includes game state tracking, winning condition checks, and score display.
+                    </p>
+                    <div class="project-tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                    </div>
+                </div>
+                <div class="project-icon">
+                    <i class="fas fa-gamepad"></i>
+                </div>
+            </div>
+
+            <div class="project-row">
+                <div class="project-number">04</div>
+                <div class="project-details">
+                    <h2>Smart Vehicle Counting System Using AI</h2>
+                    <p>
+                         AI-based smart traffic monitoring system for real-time vehicle detection, tracking, 
+classification, and counting using computer vision and deep learning.
+                    </p>
+                    <div class="project-tags">
+                        <span>Python</span>
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                    </div>
+                </div>
+                <div class="project-icon">
+                    <i class="fas fa-baseball-ball"></i>
+                </div>
+            </div>
+
+            <div class="project-row">
+                <div class="project-number">05</div>
+                <div class="project-details">
+                    <h2>IOT Based Smart Pet Feeder </h2>
+                    <p>
+                        An IoT-based smart pet feeder that allows remote monitoring and control of pet feeding schedules and portions.
+                    </p>
+                    <div class="project-tags">
+                        <span>Arduino Uno</span>
+                        <span>PIR Motion Sensor</span>
+                        <span>Servo Motor</span>
+                    </div>
+                </div>
+                <div class="project-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="project-cta">
+        <h2>Want to know more about my work?</h2>
+        <p>Feel free to contact me for collaboration, internship opportunities, or project discussions.</p>
+        <a href="index.html#contact">Contact Me</a>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p>&copy; 2026 Azad. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

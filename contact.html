@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+
+    <style>
+        /* UNIQUE ABOUT PAGE */
+        
+        .about-unique {
+            min-height: 100vh;
+            background: #0f172a;
+            color: white;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 120px 8%;
+            gap: 60px;
+        }
+        
+        .left-side h4 {
+            color: #38bdf8;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+        }
+        
+        .left-side h1 {
+            font-size: 58px;
+            line-height: 1.2;
+            margin-bottom: 25px;
+        }
+        
+        .left-side h1 span {
+            color: #38bdf8;
+        }
+        
+        .left-side p {
+            color: #cbd5e1;
+            line-height: 1.9;
+            font-size: 18px;
+        }
+        
+        .stats {
+            display: flex;
+            gap: 20px;
+            margin-top: 50px;
+        }
+        
+        .stat-box {
+            background: #1e293b;
+            padding: 25px;
+            border-radius: 18px;
+            width: 140px;
+            text-align: center;
+            transition: 0.4s;
+        }
+        
+        .stat-box:hover {
+            transform: translateY(-10px);
+            background: #38bdf8;
+        }
+        
+        .stat-box h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        .right-side {
+            display: flex;
+            align-items: center;
+        }
+        
+        .timeline-box {
+            border-left: 3px solid #38bdf8;
+            padding-left: 30px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+        }
+        
+        .circle {
+            width: 18px;
+            height: 18px;
+            background: #38bdf8;
+            border-radius: 50%;
+            position: absolute;
+            left: -40px;
+            top: 5px;
+        }
+        
+        .content {
+            background: #1e293b;
+            padding: 25px;
+            border-radius: 18px;
+        }
+        
+        .content h3 {
+            margin-bottom: 10px;
+            color: #38bdf8;
+        }
+        
+        .content p {
+            color: #cbd5e1;
+            margin-bottom: 8px;
+        }
+        
+        .content span {
+            color: #94a3b8;
+            font-size: 14px;
+        }
+        /* TECH SECTION */
+        
+        .tech-section {
+            background: #111827;
+            padding: 80px 8%;
+            text-align: center;
+            color: white;
+        }
+        
+        .tech-section h2 {
+            font-size: 42px;
+            margin-bottom: 50px;
+        }
+        
+        .tech-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+        
+        .tech-item {
+            width: 170px;
+            height: 170px;
+            background: #1f2937;
+            border-radius: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: 0.4s;
+        }
+        
+        .tech-item:hover {
+            background: #38bdf8;
+            transform: rotate(5deg) scale(1.05);
+        }
+        
+        .tech-item i {
+            font-size: 55px;
+            margin-bottom: 18px;
+        }
+        
+        .tech-item span {
+            font-size: 18px;
+        }
+        /* MOBILE */
+        
+        @media(max-width:900px) {
+            .about-unique {
+                grid-template-columns: 1fr;
+            }
+            .left-side h1 {
+                font-size: 40px;
+            }
+            .stats {
+                flex-wrap: wrap;
+            }
+        }
+        /* ===============================
+   PROFESSIONAL NAVIGATION MENU
+================================ */
+        
+        .navbar {
+            width: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(15px);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 16px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-logo a {
+            color: #38bdf8;
+            font-size: 28px;
+            font-weight: 800;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 12px;
+            align-items: center;
+        }
+        
+        .nav-link {
+            color: #e5e7eb;
+            text-decoration: none;
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: 0.3s ease;
+        }
+        
+        .nav-link:hover,
+        .nav-link.active {
+            background: #38bdf8;
+            color: #020617;
+        }
+        
+        .contact-btn {
+            background: #22c55e;
+            color: white;
+        }
+        
+        .contact-btn:hover {
+            background: #16a34a;
+            color: white;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        .bar {
+            display: block;
+            width: 28px;
+            height: 3px;
+            background: white;
+            margin: 5px;
+            border-radius: 5px;
+        }
+        /* Mobile Navigation */
+        
+        @media(max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                width: 260px;
+                height: 100vh;
+                background: #0f172a;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 35px 25px;
+                gap: 20px;
+                transition: 0.4s ease;
+            }
+            .nav-menu.active {
+                right: 0;
+            }
+            .nav-link {
+                width: 100%;
+                display: block;
+            }
+        }
+        /* ==================================
+   CONTACT PAGE
+================================== */
+        
+        .contact-page {
+            min-height: 65vh;
+            padding: 120px 8%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            background: linear-gradient(135deg, #0f172a, #111827);
+            color: white;
+        }
+        
+        .contact-left span {
+            color: #eaeff1;
+            letter-spacing: 4px;
+            font-weight: 700;
+            font-size: 30px;
+        }
+        
+        .contact-left h1 {
+            font-size: 60px;
+            margin: 20px 0;
+        }
+        
+        .contact-left p {
+            color: #cbd5e1;
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+        
+        .contact-info-box {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        
+        .contact-item-box {
+            background: #1e293b;
+            padding: 25px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .contact-item-box i {
+            width: 60px;
+            height: 60px;
+            background: #38bdf8;
+            color: #020617;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+        }
+        
+        .contact-item-box h3 {
+            margin-bottom: 5px;
+        }
+        
+        .contact-item-box p {
+            margin: 0;
+        }
+        
+        .contact-right {
+            background: white;
+            padding: 45px;
+            border-radius: 30px;
+        }
+        
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            padding: 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 14px;
+            font-size: 16px;
+        }
+        
+        .contact-form button {
+            background: #38bdf8;
+            color: #020617;
+            border: none;
+            padding: 16px;
+            border-radius: 14px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        .contact-form button:hover {
+            background: #0ea5e9;
+        }
+        
+        @media(max-width:900px) {
+            .contact-page {
+                grid-template-columns: 1fr;
+            }
+            .contact-left h1 {
+                font-size: 42px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <div class="nav-container">
+
+            <div class="nav-logo">
+                <a href="index.html">
+                    <i class="fas fa-laptop-code"></i> SHAIK AZAD
+                </a>
+            </div>
+
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="project.html" class="nav-link">Projects</a></li>
+                <li><a href="contact.html" class="nav-link active">Contact</a></li>
+            </ul>
+
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+        </div>
+
+    </nav>
+
+    <!-- CONTACT PAGE -->
+
+    <section class="contact-page">
+
+        <div class="contact-left">
+
+            <span>GET IN TOUCH</span>
+
+
+
+
+            <div class="contact-info-box">
+
+                <div class="contact-item-box">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h3>Email</h3>
+                        <p>azadshaik8096@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="contact-item-box">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h3>Phone</h3>
+                        <p>9059370211</p>
+                    </div>
+                </div>
+
+                <div class="contact-item-box">
+                    <i class="fas fa-location-dot"></i>
+                    <div>
+                        <h3>Location</h3>
+                        <p>Hanamkonda, Telangana</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="contact-right">
+
+            <form class="contact-form">
+
+                <input type="text" placeholder="Your Name" required>
+
+                <input type="email" placeholder="Your Email" required>
+
+                <textarea rows="6" placeholder="Your Message"></textarea>
+
+                <button type="submit">Send Message</button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
